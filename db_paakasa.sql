@@ -54,7 +54,6 @@ CREATE TABLE TblPaakasa (
     supplier_ContactTitle VARCHAR(255)
 );
 
-
 -- INSERTING DATA INTO THE CREATED TABLE
 /**LOAD DATA LOCAL INFILE 'G:\projects\paakasa\paakasa.csv'-- table path
 INTO TABLE TblPaakasa
