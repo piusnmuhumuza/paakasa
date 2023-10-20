@@ -12,7 +12,8 @@ While working on this project i utilised this resources for learning purposes;-
 * [Why Database Character Set Matter?](https://www.linkedin.com/pulse/why-database-character-set-matter-adhika-widjaya/)
 * [Understanding Database Character Sets and Collations”](https://blog.fourninecloud.com/database-character-set-charset-collation-and-their-relationship-explained-227bd5155c48)
 * [Understanding Character Encoding](https://www.geeksforgeeks.org/understanding-character-encoding/)
-* 
+* [Introduction to Character Encoding](https://medium.com/jspoint/introduction-to-character-encoding-3b9735f265a6)
+* [The ASCII table and mapping](https://www.asciitable.com/)
 
 ### Conclusion
 As part of my learning i forked the original project to [my account](https://github.com/piusnmuhumuza/Database-Design) for learning purposes, backup and easy follow-up purposes.
