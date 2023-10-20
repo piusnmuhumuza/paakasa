@@ -148,9 +148,9 @@ CREATE TABLE IF NOT EXISTS orders AS
 SELECT  orderID,
     customerID,
     employeeID,
-    STR_TO_DATE(orderDate, '%m/%d/%Y') orderDate,
-    STR_TO_DATE(requiredDate, '%m/%d/%Y') requiredDate,
-    STR_TO_DATE(shippedDate, '%m/%d/%Y') shippedDate,
+    STR_TO_DATE('21,5,2013','%d,%m,%Y') orderDate,
+    STR_TO_DATE('21,5,2013','%d,%m,%Y') requiredDate,
+    STR_TO_DATE('21,5,2013','%d,%m,%Y') shippedDate,
     shipVia,
     Freight,
     productID,
@@ -195,7 +195,7 @@ DESCRIBE categories;
 -- To Alter the table constraints below
 
 ALTER TABLE categories
-MODIFY categoryID INT AUTO_INCREMENT PRIMARY KEY, -- For Category ID
+--MODIFY categoryID INT AUTO_INCREMENT PRIMARY KEY, -- For Category ID
 MODIFY categoryName VARCHAR(255) NOT NULL UNIQUE; -- For Category Name
 
 -- FOR THE CUSTOMERS TABLE
@@ -208,7 +208,7 @@ column should not be null.
 */
 
 ALTER TABLE customers 
-CHANGE COLUMN customerID customerID CHAR(5) NOT NULL ,
+--CHANGE COLUMN customerID customerID CHAR(6) NOT NULL ,
 CHANGE COLUMN companyName companyName VARCHAR(255) NOT NULL ,
 CHANGE COLUMN contactName contactName VARCHAR(255) NOT NULL ,
 CHANGE COLUMN contactTitle contactTitle VARCHAR(255) NOT NULL ,
