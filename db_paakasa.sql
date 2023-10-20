@@ -15,6 +15,7 @@ USE db_paakasa;
 
 -- To drop the table if it exists
 DROP TABLE IF EXISTS TblPaakasa;
+DROP TABLE IF EXISTS Paakasa;
 
 -- TO create the table for the paakasa data
 CREATE TABLE TblPaakasa (
@@ -276,12 +277,12 @@ ADD INDEX Category_fk_idx (categoryID ASC) VISIBLE;
 ALTER TABLE products 
 ADD CONSTRAINT Supplier_fk
     FOREIGN KEY (supplierID)
-    REFERENCES db_northwind.suppliers (supplierID)
+    REFERENCES db_TblPaakasa.suppliers (supplierID)
     ON DELETE CASCADE 
     ON UPDATE RESTRICT,
 ADD CONSTRAINT Category_fk
     FOREIGN KEY (categoryID)
-    REFERENCES db_northwind.categories (categoryID)
+    REFERENCES db_TblPaakasa.categories (categoryID)
     ON DELETE CASCADE 
     ON UPDATE RESTRICT;
 
@@ -305,17 +306,17 @@ ADD INDEX product_fk_idx (productID ASC) VISIBLE;
 -- To add the foreign key to the tables
 ALTER TABLE db_TblPaakasa.orders 
 ADD CONSTRAINT employee_fk
-  FOREIGN KEY (employeeID)
-  REFERENCES db_TblPaakasa.employees (employeeID)
-  ON DELETE NO ACTION
-  ON UPDATE NO ACTION,
+    FOREIGN KEY (employeeID)
+    REFERENCES db_TblPaakasa.employees (employeeID)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
 ADD CONSTRAINT customer_fk
-  FOREIGN KEY (customerID)
-  REFERENCES db_TblPaakasa.customers (customerID)
-  ON DELETE NO ACTION
-  ON UPDATE NO ACTION,
+    FOREIGN KEY (customerID)
+    REFERENCES db_TblPaakasa.customers (customerID)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
 ADD CONSTRAINT product_fk
-  FOREIGN KEY (productID)
-  REFERENCES db_TblPaakasa.products (productID)
-  ON DELETE NO ACTION
-  ON UPDATE NO ACTION;
+    FOREIGN KEY (productID)
+    REFERENCES db_TblPaakasa.products (productID)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION;
