@@ -15,8 +15,11 @@ While working on this project i utilised this resources for learning purposes;-
 * 
 
 ### Conclusion
+As part of my learning i forked the original project to [my account](https://github.com/piusnmuhumuza/Database-Design) for learning purposes, backup and easy follow-up purposes.
+Here is my [Paakasa project](https://github.com/piusnmuhumuza/paakasa) on github
 
 ### Tool Ulitized
 * [Makrdown](https://www.markdownguide.org/basic-syntax/), Medium & Hashnode for this documenting my project.
 * [VS CODE](https://code.visualstudio.com/download) , [MySQL WorkBench](https://www.mysql.com/products/workbench/) for the SQL.
 * Google, LinkedIn & Medium for the tutorial reading material.
+* [Project Documentation](https://github.com/Ebuka456/Database-Design) by Okonkwo Chukwuebuka Malcom on github.
