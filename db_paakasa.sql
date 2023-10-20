@@ -20,7 +20,7 @@ DROP TABLE IF EXISTS Paakasa;
 -- TO create the table for the paakasa data
 CREATE TABLE TblPaakasa (
     orderID INT,
-    customerID INT,
+    customerID CHAR(5),
     employeeID INT,
     orderDate DATE,
     requiredDate DATE,
@@ -34,29 +34,27 @@ CREATE TABLE TblPaakasa (
     companyName VARCHAR(255),
     contactName VARCHAR(255),
     contactTitle VARCHAR(255),
-    lastName VARCHAR(255),
-    firstName VARCHAR(255),
     employees_lastName VARCHAR(255),
     employees_firstName VARCHAR(255),
     employees_title VARCHAR(255),
-    title VARCHAR(255),
     productName VARCHAR(255),
     supplierID INT,
     categoryID INT,
     quantityPerUnit VARCHAR(255),
     product_unitPrice DECIMAL(10,2),
+    unitPrice_1 DECIMAL(10,2),
     unitsInStock INT,
     unitsOnOrder INT,
     reorderLevel INT,
     discontinued TINYINT,
     categoryName VARCHAR(255),
-    supplier_CompanyName VARCHAR(255),
-    supplier_ContactName VARCHAR(255),
-    supplier_ContactTitle VARCHAR(255)
+    supplierCompanyName VARCHAR(255),
+    supplierContactName VARCHAR(255),
+    supplierContactTitle VARCHAR(255)
 );
 
 -- INSERTING DATA INTO THE CREATED TABLE
-/**LOAD DATA LOCAL INFILE 'G:\projects\paakasa\paakasa.csv'-- table path
+LOAD DATA LOCAL INFILE 'G:\projects\paakasa\paakasa.csv'-- table path
 INTO TABLE TblPaakasa
 FIELDS TERMINATED BY ',' -- for a csv file
 ENCLOSED BY '"' -- for the strings
@@ -66,7 +64,7 @@ IGNORE 1 ROWS; -- ignore the headers
 -- to check the table for the loaded data
 SELECT *
 FROM TblPaakasa;
-/////
+/**
 This works if you have access enabled on the User and clients side. 
 Due to issues with getting access so I used the Table Import Wizard and the table was successfully
 imported into the db_paakasa database created on MySQL Workbench.
@@ -113,9 +111,9 @@ FROM categories;
 -- TO CREATE THE SUPPLIERS TABLE
 CREATE TABLE IF NOT EXISTS suppliers AS
 SELECT DISTINCT supplierID,
-	supplier_companyName AS companyName,
-    supplier_contactName AS contactName,
-    supplier_contactTitle AS contactTitle
+	supplierCompanyName AS companyName,
+    supplierContactName AS contactName,
+    supplierContactTitle AS contactTitle
 FROM TblPaakasa
 ORDER BY supplierID;
 
