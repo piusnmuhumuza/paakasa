@@ -28,8 +28,11 @@ I therefore embarked on proper versioning with creating branches for each step s
 
 #### Database Creation & Data Loading  
 
-* I created the file db_pakaasa-create.sql for this step.
+* I created the file <em>db_pakaasa-create.sql</em> for this step.
 * I also made sure to clean the excel data a bit, reduce it and make it a bit relevant to my test project.
+* I tried loading the data from csv using the sql command in file <em>db_pakaasa-load-data.sql</em> and failed due to restriction, I ran the <code>SET GLOBAL local_infile = true;</code> and checked it with <code>SHOW GLOBAL VARIABLES LIKE 'local_infile';</code> but also failed even with (value) showing ON, so run <code>SET GLOBAL local_infile = false;</code> to change value back to OFF and resorted to using the Table Import Wizard as well.
+* Data was uploaded successfully(107 rows) and confirmed by running sql query <em>SELECT *
+FROM TblPaakasa;</em>.
 
 ### Conclusion
 

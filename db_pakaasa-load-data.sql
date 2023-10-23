@@ -1,5 +1,6 @@
 -- INSERTING DATA INTO THE CREATED TABLE
-LOAD DATA LOCAL INFILE 'G:\projects\paakasa\paakasa.csv'-- table path
+LOAD DATA LOCAL INFILE
+'G:\projects\paakasa\paakasa.csv'-- table path
 INTO TABLE TblPaakasa
 FIELDS TERMINATED BY ',' -- for a csv file
 ENCLOSED BY '"' -- for the strings
