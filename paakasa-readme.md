@@ -19,6 +19,7 @@ While working on this project i utilized this resources for learning purposes;-
 * [Understanding Character Encoding](https://www.geeksforgeeks.org/understanding-character-encoding/)
 * [Introduction to Character Encoding](https://medium.com/jspoint/introduction-to-character-encoding-3b9735f265a6)
 * [The ASCII table and mapping](https://www.asciitable.com/)
+* [Data Normalization: Definition, Importance, and Advantages](https://coresignal.com/blog/data-normalization/)
 
 ### The Paakasa Database process
 
@@ -42,12 +43,12 @@ Normalization involves organizing data based on assigned attributes as a part of
 
 After Normalizing the table, The table was sub-divided into the following entities
 
-* Customers
-* Categories
-* Suppliers
-* Products
-* Orders
-* Employees
+* Customers with query <code>SELECT * FROM db_paakasa.customers;</code> to confirm table.
+* Categories with query <code>SELECT * FROM db_paakasa.categories;</code> to confirm table.
+* Suppliers with query <code>SELECT * FROM db_paakasa.suppliers;</code> to confirm table.
+* Products with query <code>SELECT * FROM db_paakasa.products;</code> to confirm table.
+* Orders with query <code>SELECT * FROM db_paakasa.orders;</code> to confirm table.
+* Employees with query <code>SELECT * FROM db_paakasa.employees;</code> to confirm table.
   
 ### Conclusion
 
@@ -59,4 +60,6 @@ Here is my [Paakasa project](https://github.com/piusnmuhumuza/paakasa) on github
 * [Markdown](https://www.markdownguide.org/basic-syntax/), Medium & Hashnode for this documenting my project.
 * [VS CODE](https://code.visualstudio.com/download) , [MySQL WorkBench](https://www.mysql.com/products/workbench/) for the SQL.
 * Google, LinkedIn & Medium for the tutorial reading material.
-* [Project Documentation](https://github.com/Ebuka456/Database-Design) by Okonkwo Chukwuebuka Malcom on github.  
+* [Project Documentation](https://github.com/Ebuka456/Database-Design) by Okonkwo Chukwuebuka Malcom on github.
+* I also thought it a good practice to use [BARD](https://bard.google.com/) as a peer Programmer and for quickly researching complex syntax, terminologies to save time using google search or specific sites. Its important not to add sensitive information to Bard or any chatGPT platform and also ask questions that you are familiar with a a control measure incases of genAI hallucinations. 
+*  
