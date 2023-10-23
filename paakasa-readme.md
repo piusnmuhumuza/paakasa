@@ -43,12 +43,12 @@ Normalization involves organizing data based on assigned attributes as a part of
 
 After Normalizing the table, The table was sub-divided into the following entities
 
-* Customers with query <em>SELECT * FROM db_paakasa.customers;</em> to confirm table.
-* Categories with query <em>SELECT * FROM db_paakasa.categories;</em> to confirm table.
-* Suppliers with query <em>SELECT * FROM db_paakasa.suppliers;</em> to confirm table.
-* Products with query <em>SELECT * FROM db_paakasa.products;</em> to confirm table.
-* Orders with query <em>SELECT * FROM db_paakasa.orders;</em> to confirm table.
-* Employees with query <em>SELECT * FROM db_paakasa.employees;</em> to confirm table.
+* Customers with query <code>SELECT * FROM db_paakasa.customers;</code> to confirm table.
+* Categories with query <code>SELECT * FROM db_paakasa.categories;</code> to confirm table.
+* Suppliers with query <code>SELECT * FROM db_paakasa.suppliers;</code> to confirm table.
+* Products with query <code>SELECT * FROM db_paakasa.products;</code> to confirm table.
+* Orders with query <code>SELECT * FROM db_paakasa.orders;</code> to confirm table.
+* Employees with query <code>SELECT * FROM db_paakasa.employees;</code> to confirm table.
   
 ### Conclusion
 
