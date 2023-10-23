@@ -34,6 +34,21 @@ I therefore embarked on proper versioning with creating branches for each step s
 * Data was uploaded successfully(107 rows) and confirmed by running sql query <em>SELECT *
 FROM TblPaakasa;</em>.
 
+#### Normalization and Denormalization
+
+As per tutorial, the imported data is denormalized, thus the need for, Data Normalization
+
+Normalization involves organizing data based on assigned attributes as a part of a larger data model. The main objective of database normalization is to eliminate redundant data, minimize data modification errors, and simplify the query process.
+
+After Normalizing the table, The table was sub-divided into the following entities
+
+* Customers
+* Categories
+* Suppliers
+* Products
+* Orders
+* Employees
+  
 ### Conclusion
 
 As part of my learning i forked the original project to [my account](https://github.com/piusnmuhumuza/Database-Design) for learning purposes, backup and easy follow-up purposes.
