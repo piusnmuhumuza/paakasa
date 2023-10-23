@@ -60,4 +60,6 @@ Here is my [Paakasa project](https://github.com/piusnmuhumuza/paakasa) on github
 * [Markdown](https://www.markdownguide.org/basic-syntax/), Medium & Hashnode for this documenting my project.
 * [VS CODE](https://code.visualstudio.com/download) , [MySQL WorkBench](https://www.mysql.com/products/workbench/) for the SQL.
 * Google, LinkedIn & Medium for the tutorial reading material.
-* [Project Documentation](https://github.com/Ebuka456/Database-Design) by Okonkwo Chukwuebuka Malcom on github.  
+* [Project Documentation](https://github.com/Ebuka456/Database-Design) by Okonkwo Chukwuebuka Malcom on github.
+* I also thought it a good practice to use [BARD](https://bard.google.com/) as a peer Programmer and for quickly researching complex syntax, terminologies to save time using google search or specific sites. Its important not to add sensitive information to Bard or any chatGPT platform and also ask questions that you are familiar with a a control measure incases of genAI hallucinations. 
+*  
