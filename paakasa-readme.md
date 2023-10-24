@@ -50,6 +50,14 @@ After Normalizing the table, The table was sub-divided into the following entiti
 * Orders with query <code>SELECT * FROM db_paakasa.orders;</code> to confirm table.
 * Employees with query <code>SELECT * FROM db_paakasa.employees;</code> to confirm table.
   
+#### Database Diagram Design and Table Alterations
+
+This section of the tutorial gave me abit of a challenge as i had to go back and forth between the SQL scripts, Excel data and [BARD](https://bard.google.com/)(As my peer programmer) to get it right.
+
+#### Creating Views, Triggers, and Stored Procedures
+
+#### User Management and Privileges
+
 ### Conclusion
 
 As part of my learning i forked the original project to [my account](https://github.com/piusnmuhumuza/Database-Design) for learning purposes, backup and easy follow-up purposes.
