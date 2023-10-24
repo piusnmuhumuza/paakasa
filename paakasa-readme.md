@@ -539,6 +539,8 @@ I did a Data Export from my MySQL workbench to create a backup of the DB file <c
 As part of my learning i forked the original project to [my account](https://github.com/piusnmuhumuza/Database-Design) for learning purposes, backup and easy follow-up purposes.
 Here is my [Paakasa project](https://github.com/piusnmuhumuza/paakasa) on github
 
+I organized the files and pushed all files to repository to complete project.
+
 ### Tool Utilized
 
 * [Markdown](https://www.markdownguide.org/basic-syntax/), Medium & Hashnode for this documenting my project.
