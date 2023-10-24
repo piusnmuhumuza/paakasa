@@ -1,5 +1,5 @@
-
 /** Database Creation & Data Loading **/
+
 
 -- Dropping the database if it exists 
 DROP DATABASE IF EXISTS db_paakasa;
@@ -53,8 +53,13 @@ CREATE TABLE TblPaakasa (
     supplierContactTitle VARCHAR(255)
 );
 
+-- Databases Creation
+-- Database Paakasa has been created along with table TblPaakasa(Has 32 columns)
+
+-- Data Loading
 -- INSERTING DATA INTO THE CREATED TABLE
-LOAD DATA LOCAL INFILE 'G:\projects\paakasa\paakasa.csv'-- table path
+LOAD DATA LOCAL INFILE
+'G:\projects\paakasa\paakasa.csv'-- table path
 INTO TABLE TblPaakasa
 FIELDS TERMINATED BY ',' -- for a csv file
 ENCLOSED BY '"' -- for the strings
@@ -65,22 +70,13 @@ IGNORE 1 ROWS; -- ignore the headers
 SELECT *
 FROM TblPaakasa;
 /**
-This works if you have access enabled on the User and clients side. 
-Due to issues with getting access so I used the Table Import Wizard and the table was successfully
+This works if you have access enabled on the User and clients side. But Due to issues with getting access so I used the Table Import Wizard and the table was successfully
 imported into the db_paakasa database created on MySQL Workbench.
 **/
-
+-- All in all after data cleaning i have 94(rows) when i load paakasa.csv file.
+---------------------------------------------------------------------------------------
 
 /** Normalization and Denormalization **/
-/***
-After Normalizing the table, The table was sub-divided into the following entities
--- Customers
--- Categories
--- Suppliers
--- Products
--- Orders
--- Employees
- ***/
 
 -- To get the column names of the dataset
 DESCRIBE TblPaakasa;
@@ -111,9 +107,9 @@ FROM categories;
 -- TO CREATE THE SUPPLIERS TABLE
 CREATE TABLE IF NOT EXISTS suppliers AS
 SELECT DISTINCT supplierID,
-	supplierCompanyName AS companyName,
-    supplierContactName AS contactName,
-    supplierContactTitle AS contactTitle
+	supplierCompanyName,
+    supplierContactName,
+    supplierContactTitle
 FROM TblPaakasa
 ORDER BY supplierID;
 
@@ -179,14 +175,21 @@ ORDER BY employeeID;
 SELECT *
 FROM employees;
 
-
-
+/***
+After Normalizing the table, The table was sub-divided into the following entities
+-- Customers
+-- Categories
+-- Suppliers
+-- Products
+-- Orders
+-- Employees
+ ***/
+-----------------------------------------------------------------------------------------
 
 /** Database Diagram Design and Table Alterations **/
 -- ALTER TABLE CONSTRAINTS
 
-
-
+USE db_paakasa;
 -- FOR THE CATEGORIES TABLE
 DESCRIBE categories;
 
@@ -195,25 +198,29 @@ DESCRIBE categories;
 -- To Alter the table constraints below
 
 ALTER TABLE categories
---MODIFY categoryID INT AUTO_INCREMENT PRIMARY KEY, -- For Category ID
+MODIFY categoryID INT AUTO_INCREMENT PRIMARY KEY; -- For Category ID
+ALTER TABLE categories
 MODIFY categoryName VARCHAR(255) NOT NULL UNIQUE; -- For Category Name
+
+--------------------------------------------------------------------------------------
 
 -- FOR THE CUSTOMERS TABLE
 DESCRIBE customers;
 
 /* 
-From observing the table, the customerID is the Primary Key. 
+From observing the table, the customerID is the Primary Key.
 The Company Name, Contact Name and Contact Title
 column should not be null. 
 */
 
 ALTER TABLE customers 
---CHANGE COLUMN customerID customerID CHAR(6) NOT NULL ,
+CHANGE COLUMN customerID customerID CHAR(6) NOT NULL ,
 CHANGE COLUMN companyName companyName VARCHAR(255) NOT NULL ,
 CHANGE COLUMN contactName contactName VARCHAR(255) NOT NULL ,
 CHANGE COLUMN contactTitle contactTitle VARCHAR(255) NOT NULL ,
 ADD PRIMARY KEY (customerID);
 ;
+------------------------------------------------------------------------------------------
 
 -- FOR THE SUPPLIERS TABLE
 DESCRIBE suppliers;
@@ -223,15 +230,16 @@ From observing the columns in the table, the supplierID is the Primary Key and A
 and contactTitle should not be null
 */
 
-ALTER TABLE suppliers 
-CHANGE COLUMN supplierID supplierID INT NOT NULL AUTO_INCREMENT ,
-CHANGE COLUMN companyName companyName VARCHAR(255) NOT NULL ,
-CHANGE COLUMN contactName contactName VARCHAR(255) NOT NULL ,
-CHANGE COLUMN contactTitle contactTitle VARCHAR(255) NOT NULL ,
+
+ALTER TABLE suppliers
+CHANGE COLUMN supplierID supplierID INT NOT NULL AUTO_INCREMENT,
+CHANGE COLUMN supplierCompanyName supplierCompanyName VARCHAR(255) NOT NULL,
+CHANGE COLUMN supplierContactName supplierContactName VARCHAR(255) NOT NULL,
+CHANGE COLUMN supplierContactTitle supplierContactTitle VARCHAR(255) NOT NULL,
 ADD PRIMARY KEY (supplierID),
 ADD UNIQUE INDEX supplierID_UNIQUE (supplierID ASC) VISIBLE;
 ;
-
+-------------------------------------------------------------------------------------------------
 
 -- FOR THE EMPLOYEES TABLE
 DESCRIBE employees;
@@ -249,7 +257,7 @@ CHANGE COLUMN full_name full_name VARCHAR(255) NOT NULL ,
 CHANGE COLUMN employees_title employees_title VARCHAR(255) NOT NULL ,
 ADD PRIMARY KEY (employeeID);
 ;
-
+-------------------------------------------------------------------------------------------------
 
 -- FOR THE PRODUCTS TABLE
 DESCRIBE products;
@@ -270,21 +278,22 @@ ADD UNIQUE INDEX productName_UNIQUE (productName ASC) VISIBLE,
 ADD INDEX Supplier_fk_idx (supplierID ASC) VISIBLE,
 ADD INDEX Category_fk_idx (categoryID ASC) VISIBLE;
 ;
+------------------------------------------------------------------------------------------------
 
 -- To Include the Foreign key for Supplier ID and Category ID
 ALTER TABLE products 
 ADD CONSTRAINT Supplier_fk
     FOREIGN KEY (supplierID)
-    REFERENCES db_TblPaakasa.suppliers (supplierID)
+    REFERENCES db_paakasa.suppliers (supplierID)
     ON DELETE CASCADE 
     ON UPDATE RESTRICT,
 ADD CONSTRAINT Category_fk
     FOREIGN KEY (categoryID)
-    REFERENCES db_TblPaakasa.categories (categoryID)
+    REFERENCES db_paakasa.categories (categoryID)
     ON DELETE CASCADE 
     ON UPDATE RESTRICT;
 
-
+-------------------------------------------------------------------------------------------------------
 -- FOR THE ORDERS TABLE
 DESCRIBE orders;
 
@@ -292,7 +301,7 @@ DESCRIBE orders;
 
 ALTER TABLE orders 
 CHANGE COLUMN orderID orderID INT NOT NULL ,
-CHANGE COLUMN customerID customerID CHAR(5) NULL DEFAULT NULL ,
+CHANGE COLUMN customerID customerID CHAR(6) NULL DEFAULT NULL ,
 CHANGE COLUMN productID productID INT NOT NULL ,
 CHANGE COLUMN unitPrice unitPrice DOUBLE NOT NULL ,
 CHANGE COLUMN quantity quantity INT NOT NULL ,
@@ -302,19 +311,141 @@ ADD INDEX product_fk_idx (productID ASC) VISIBLE;
 
 
 -- To add the foreign key to the tables
-ALTER TABLE db_TblPaakasa.orders 
+ALTER TABLE db_paakasa.orders 
 ADD CONSTRAINT employee_fk
     FOREIGN KEY (employeeID)
-    REFERENCES db_TblPaakasa.employees (employeeID)
+    REFERENCES db_paakasa.employees (employeeID)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
 ADD CONSTRAINT customer_fk
     FOREIGN KEY (customerID)
-    REFERENCES db_TblPaakasa.customers (customerID)
+    REFERENCES db_paakasa.customers (customerID)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
 ADD CONSTRAINT product_fk
     FOREIGN KEY (productID)
-    REFERENCES db_TblPaakasa.products (productID)
+    REFERENCES db_paakasa.products (productID)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION;
+
+--------------------------------------------------------------------------------------------
+-- Creating Views, Triggers, and Stored Procedures
+
+-- TASK: Create a View to show the number of Quantity sold and The Revenue made by Each Employee
+CREATE OR REPLACE VIEW employee_record AS
+SELECT e.employeeID,
+	e.full_name AS "Full Name",
+    e.employees_title AS "Title",
+	SUM(o.quantity) AS "Quantity Sold",
+    CONCAT( '$',
+		  ROUND(SUM(o.unitPrice * o.quantity), 2)
+        ) AS Revenue
+FROM employees e JOIN
+	orders o 
+    ON e.employeeID = o.employeeID
+GROUP BY e.employeeID,
+		e.full_name,
+        e.employees_title
+ORDER BY SUM(o.unitPrice * o.quantity) DESC
+;
+
+-- To check the results of the view
+SELECT *
+FROM employee_record;
+
+-- TASK: Create a Trigger on the products table that automatically removes the number of Units of product in stock, after 
+-- an order has been made
+
+-- To fist drop the Trigger if it exists
+DROP TRIGGER update_products;
+
+-- To create the trigger
+DELIMITER //
+CREATE TRIGGER update_products
+AFTER INSERT ON orders
+FOR EACH ROW
+BEGIN
+UPDATE products
+SET unitsInStock = products.unitsInStock - NEW.quantity
+WHERE productID = NEW.productID;
+END //
+DELIMITER ;
+
+
+-- TASK: Write a Procedure to list the products that needs to be restocked
+/* 
+Products that needs to be restocked are products that the amount of unit in stock is less
+than the reorder level. So a procedure would be used to generate the list of products that fall
+into this category. 
+
+This helps the business Owner identify the products that need to be restocked
+*/
+DELIMITER $$
+CREATE PROCEDURE getRestock_products ( IN product_name VARCHAR(255))
+BEGIN
+-- TAKING THE LOWER CASE OF THE INPUT PARAMETER
+SET product_name = LOWER(product_name);
+-- To check if a certain product needs to be restocked
+SELECT productName,
+	CASE WHEN unitsInStock < reorderLevel THEN "Restock Level reached"
+    WHEN unitsInStock = reorderLevel THEN "On Restock Level"
+    WHEN unitsInStock - reorderLevel <= 5 THEN "Close to Restock Level"
+    ELSE "Above Restocked Level"
+    END AS "Restock Status"
+FROM products
+WHERE LOWER(productName) LIKE CONCAT('%', product_name, '%');
+
+-- Products that needs to be restocked
+SELECT productID,
+	productName,
+    unitsInStock,
+    reorderLevel
+FROM products
+WHERE unitsInStock < reorderLevel;
+END $$
+DELIMITER ;
+
+-- To test if the procedures worked
+CALL getRestock_products("che");
+
+-----------------------------------------------------------------------------------------
+
+-- User Management and Privileges
+
+-- TASK: CREATE TWO USERS AND GIVE THEM ACCESS TO THE DATABASE 
+/* 
+THE FIRST USER "JohnDoe" WILL BE A DBA AND SHOULD GET FULL DATABASE ADMINISTRATOR PRIVILEGES
+THE SECOND USER "JaneDoe" IS AN ANALYST AND NEEDS READ ACCESS
+*/
+
+-- To check for the existing privileges granted
+SHOW GRANTS FOR 
+root@localhost;
+
+-- USER CREATION
+
+-- FOR THE FIRST USER NAMED "JohnDoe"
+CREATE USER IF NOT EXISTS
+'JohnDoe'@'localhost'
+IDENTIFIED BY 'user_password';
+
+-- FOR THE SECOND USER NAMED "JaneDoe"
+CREATE USER IF NOT EXISTS
+'JaneDoe'@'localhost'
+IDENTIFIED BY 'user_password';
+
+-- ASSIGNING USER PRIVILEGES
+
+-- FOR THE FIRST USER, PRIVILEGES ARE FULL DATABASE ADMINISTRATOR
+-- DBA GETS FULL PRIVILEGES ON THE DATABASE
+GRANT ALL PRIVILEGES
+ON db_paakasa.*
+TO 'JohnDoe'@'localhost';
+
+-- FOR THE SECOND USER, PRIVILEGES ARE FOR A DATA ANALYST
+-- DATA ANALYSTS GET READ ONLY ACCESS WHICH IS ONLY THE SELECT STATEMENT
+GRANT 
+	SELECT
+ON db_paakasa.*
+TO 'JaneDoe'@'localhost';
+----------------------------------------------------------------------------------------
