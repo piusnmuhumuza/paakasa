@@ -38,9 +38,9 @@ FROM categories;
 -- TO CREATE THE SUPPLIERS TABLE
 CREATE TABLE IF NOT EXISTS suppliers AS
 SELECT DISTINCT supplierID,
-	supplierCompanyName AS companyName,
-    supplierContactName AS contactName,
-    supplierContactTitle AS contactTitle
+	supplierCompanyName,
+    supplierContactName,
+    supplierContactTitle
 FROM TblPaakasa
 ORDER BY supplierID;
 
