@@ -35,6 +35,8 @@ I therefore embarked on proper versioning with creating branches for each step s
 * Data was uploaded successfully(107 rows) and confirmed by running sql query <em>SELECT *
 FROM TblPaakasa;</em>.
 
+All in all at the end of the project i was working with only 94 rows after making some data cleaning.
+
 #### Normalization and Denormalization
 
 As per tutorial, the imported data is denormalized, thus the need for, Data Normalization
@@ -49,6 +51,8 @@ After Normalizing the table, The table was sub-divided into the following entiti
 * Products with query <code>SELECT * FROM db_paakasa.products;</code> to confirm table.
 * Orders with query <code>SELECT * FROM db_paakasa.orders;</code> to confirm table.
 * Employees with query <code>SELECT * FROM db_paakasa.employees;</code> to confirm table.
+
+The file i used for this step was <code>db_pakaasa-data-normalization.sql</code>
   
 #### Database Diagram Design and Table Alterations
 
@@ -56,10 +60,23 @@ This section of the tutorial gave me abit of a challenge as i had to go back and
 
 #### Creating Views, Triggers, and Stored Procedures
 
+The file i used for this step was <code>db_paakasa-create-views-triggers-stored-procedures.sql</code>
+
 #### User Management and Privileges
 
 The 1st user "JohnDoe" a DBA was granted full DATABASE ADMINISTRATOR PRIVILEGES.
 THE 2nd user "JaneDoe" an ANALYST was granted only Read Access. 
+The file i used for this step was <code>db_paakasa-user-management-privileges.sql</code>
+
+  
+### Project SQL file
+
+After completing the project i compiled it all back into one file <code>db_paakasa.sql</code> 
+
+``` sql
+
+
+```
 
 #### Database Backup
 
@@ -77,4 +94,3 @@ Here is my [Paakasa project](https://github.com/piusnmuhumuza/paakasa) on github
 * Google, LinkedIn & Medium for the tutorial reading material.
 * [Project Documentation](https://github.com/Ebuka456/Database-Design) by Okonkwo Chukwuebuka Malcom on github.
 * I also thought it a good practice to use [BARD](https://bard.google.com/) as a peer Programmer and for quickly researching complex syntax, terminologies to save time using google search or specific sites. Its important not to add sensitive information to Bard or any chatGPT platform and also ask questions that you are familiar with a a control measure incases of genAI hallucinations. 
-*  
