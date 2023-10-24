@@ -41,6 +41,7 @@ From observing the columns in the table, the supplierID is the Primary Key and A
 and contactTitle should not be null
 */
 
+
 ALTER TABLE suppliers
 CHANGE COLUMN supplierID supplierID INT NOT NULL AUTO_INCREMENT,
 CHANGE COLUMN supplierCompanyName supplierCompanyName VARCHAR(255) NOT NULL,
@@ -49,6 +50,8 @@ CHANGE COLUMN supplierContactTitle supplierContactTitle VARCHAR(255) NOT NULL,
 ADD PRIMARY KEY (supplierID),
 ADD UNIQUE INDEX supplierID_UNIQUE (supplierID ASC) VISIBLE;
 ;
+
+
 
 
 -- FOR THE EMPLOYEES TABLE
