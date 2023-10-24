@@ -58,6 +58,13 @@ This section of the tutorial gave me abit of a challenge as i had to go back and
 
 #### User Management and Privileges
 
+The 1st user "JohnDoe" a DBA was granted full DATABASE ADMINISTRATOR PRIVILEGES.
+THE 2nd user "JaneDoe" an ANALYST was granted only Read Access. 
+
+#### Database Backup
+
+
+
 ### Conclusion
 
 As part of my learning i forked the original project to [my account](https://github.com/piusnmuhumuza/Database-Design) for learning purposes, backup and easy follow-up purposes.
