@@ -10,10 +10,11 @@ How data is organized in a database greatly impacts the performance of an applic
 
 ### Reading Resource
 
-While working on this project i utilized this resources for learning purposes;-
+While working on this project I utilized these resources for learning purposes;-
 
 * [Why Is Database Design Important?](https://www.linkedin.com/pulse/why-database-design-important-colbytech/)
 * [Database Design Project: Building A Business Database from Scratch](https://medium.com/@okonkwoebuka456/database-design-project-building-a-business-database-from-scratch-9f9b48944f97)
+* [Intellectual Property Management](https://github.com/Ebuka456/Database-Design)
 * [Why Database Character Set Matter?](https://www.linkedin.com/pulse/why-database-character-set-matter-adhika-widjaya/)
 * [Understanding Database Character Sets and Collations”](https://blog.fourninecloud.com/database-character-set-charset-collation-and-their-relationship-explained-227bd5155c48)
 * [Understanding Character Encoding](https://www.geeksforgeeks.org/understanding-character-encoding/)
@@ -23,23 +24,23 @@ While working on this project i utilized this resources for learning purposes;-
 
 ### The Paakasa Database process
 
-I initially followed the process from the github repo until the Normalization and Denormalization step at which point i realized i needed to revisit the previous SQLs commands as well as the excel file and clean the data a little bit better.
+I initially followed the process from the GitHub repo until the Normalization and Denormalization step at which point I realized I needed to revisit the previous SQL commands as well as the Excel file and clean the data a little bit better.
 
-I therefore embarked on proper versioning with creating branches for each step so that i can inspect and perform each step properly.
+I therefore embarked on proper versioning by creating branches for each step so that I can inspect and perform each step properly.
 
 ### Database Creation & Data Loading  
 
 * I created the file <em>db_pakaasa-create.sql</em> for this step.
-* I also made sure to clean the excel data a bit, reduce it and make it a bit relevant to my test project.
-* I tried loading the data from csv using the sql command in file <em>db_pakaasa-load-data.sql</em> and failed due to restriction, I ran the <code>SET GLOBAL local_infile = true;</code> and checked it with <code>SHOW GLOBAL VARIABLES LIKE 'local_infile';</code> but also failed even with (value) showing ON, so run <code>SET GLOBAL local_infile = false;</code> to change value back to OFF and resorted to using the Table Import Wizard as well.
+* I also made sure to clean the Excel data a bit, reduce it and make it a bit relevant to my test project.
+* I tried loading the data from CSV using the SQL command in file <em>db_pakaasa-load-data.sql</em> and failed due to restriction, I ran the <code>SET GLOBAL local_infile = true;</code> and checked it with <code>SHOW GLOBAL VARIABLES LIKE 'local_infile';</code> but also failed even with (value) showing ON, so run <code>SET GLOBAL local_infile = false;</code> to change value back to OFF and resorted to using the Table Import Wizard as well.
 * Data was uploaded successfully(107 rows) and confirmed by running sql query <em>SELECT *
 FROM TblPaakasa;</em>.
 
-All in all at the end of the project i was working with only 94 rows after making some data cleaning.
+All in all at the end of the project, i was working with only 94 rows after making some data cleaning.
 
 ### Normalization and Denormalization
 
-As per tutorial, the imported data is denormalized, thus the need for, Data Normalization
+As per the tutorial, the imported data is denormalized, thus the need for, Data Normalization
 
 Normalization involves organizing data based on assigned attributes as a part of a larger data model. The main objective of database normalization is to eliminate redundant data, minimize data modification errors, and simplify the query process.
 
@@ -56,7 +57,7 @@ The file i used for this step was <code>db_pakaasa-data-normalization.sql</code>
   
 ### Database Diagram Design and Table Alterations
 
-This section of the tutorial gave me abit of a challenge as i had to go back and forth between the SQL scripts, Excel data and [BARD](https://bard.google.com/)(As my peer programmer) to get it right.
+This section of the tutorial gave me a bit of a challenge as I had to go back and forth between the SQL scripts, Excel data and [BARD](https://bard.google.com/)(As my peer programmer) to get it right.
 
 ### Creating Views, Triggers, and Stored Procedures
 
