@@ -14,6 +14,7 @@ While working on this project I utilized these resources for learning purposes;-
 
 * [Why Is Database Design Important?](https://www.linkedin.com/pulse/why-database-design-important-colbytech/)
 * [Database Design Project: Building A Business Database from Scratch](https://medium.com/@okonkwoebuka456/database-design-project-building-a-business-database-from-scratch-9f9b48944f97)
+* [Database-Design](https://github.com/Ebuka456/Database-Design]
 * [Intellectual Property Management](https://github.com/Ebuka456/Database-Design)
 * [Why Database Character Set Matter?](https://www.linkedin.com/pulse/why-database-character-set-matter-adhika-widjaya/)
 * [Understanding Database Character Sets and Collations”](https://blog.fourninecloud.com/database-character-set-charset-collation-and-their-relationship-explained-227bd5155c48)
